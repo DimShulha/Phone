@@ -18,7 +18,7 @@ public class ContactCreateController {
     }
 
     public void addContacts() {
-        contact = view.doInputs();
+        contact = view.inputs();
         String str = model.createContacts(contact);
         view.getOutput(str);
         restartApp();

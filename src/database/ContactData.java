@@ -6,10 +6,10 @@ public class ContactData {
     String name;
     String number;
 
-    public void ContactPhone(){
+    public  ContactData(){
     }
 
-    public void ContactPhone(int id, String name, String number){
+    public ContactData(int id, String name, String number){
 
         this.id = id;
         this.name = name;

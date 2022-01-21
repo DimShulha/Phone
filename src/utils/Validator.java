@@ -26,6 +26,25 @@ public class Validator {
         return inputData;
     }
 
+    // Валидация ввода имени
+    public static String validateNameInput(Scanner scanner) {
+        String str = scanner.nextLine().trim();
+        while (str.isEmpty()) {
+            System.out.print("Не имя. Введите имя!");
+            str = scanner.nextLine().trim();
+        }
+        return str;
+    }
+
+    // Валидация ввода телефона
+    public static String validatePhoneInput(Scanner scanner) {
+        String str = scanner.nextLine().trim();
+        while (str.isEmpty()) {
+            System.out.print("Не верный ввод. Введите номер!");
+            str = scanner.nextLine().trim();
+        }
+        return str;
+    }
     // Проверка наличия ввода в массиве выбора
     // действий через contains()
     public static boolean contains(final int[] array, final int value) {

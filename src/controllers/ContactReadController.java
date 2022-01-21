@@ -1,12 +1,10 @@
 package controllers;
 
-import models.AppModel;
+import database.ContactData;
 import models.ContactReadModel;
-import views.AppView;
 import views.ContactReadView;
 
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.List;
 
 public class ContactReadController {
 
@@ -20,29 +18,39 @@ public class ContactReadController {
 
     public void getContacts() {
         String str = readContacts();
-        view.getOutput(str);
-        restartApp();
+
+        if (str.equals("Нет базы данных!")) {
+            view.getOutput(str);
+            System.exit(0);
+        } else {
+            view.getOutput(str);
+
+        }
     }
 
-    public String readContacts() {
-        HashMap<String, String> map = model.readContacts();
-        AtomicInteger count = new AtomicInteger(0);
-        StringBuilder stringBuilder = new StringBuilder();
-        map.forEach((key, value) ->
-                stringBuilder.append(count.incrementAndGet())
-                        .append(") ")
-                        .append(key)
-                        .append(" ")
-                        .append(value)
-                        .append("\n")
-        );
-        return stringBuilder.toString();
-    }
+    private String readContacts() {
 
-    private void restartApp() {
-        AppModel appModel = new AppModel();
-        AppView appView = new AppView(appModel);
-        AppController controller = new AppController(appModel, appView);
-        controller.runApp();
+        // Получаем данные в коллекцию.
+        List<ContactData> contacts = model.readContacts();
+        if (contacts != null) {
+            if (!contacts.isEmpty()) {
+                int count = 0;
+                String str;
+                StringBuilder stringBuilder = new StringBuilder();
+
+                for (ContactData contact : contacts) {
+                    count++;
+                    str = count + ") ID: "
+                            + contact.getId() + " - "
+                            + " " + contact.getName()
+                            + " " + contact.getNumber()
+                            + "\n";
+                    stringBuilder.append(str);
+                }
+                return stringBuilder.toString();
+            } else
+                return "Нет базы данных!";
+        } else
+            return "Нет базы данных!";
     }
 }
