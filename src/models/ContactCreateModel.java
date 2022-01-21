@@ -1,19 +1,26 @@
 package models;
 
-import java.util.HashMap;
-import java.util.Map;
+import database.ContactData;
+import database.DBconn;
+import utils.Constants;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ContactCreateModel {
 
-    // Имитация записи в БД.
-    public String createContacts() {
-        HashMap<String, String> map= new HashMap<>();
-        map.put("Марина","0994568999");
 
-        for (Map.Entry<String, String> m : map.entrySet()) {
-            System.out.println(m.getKey() + " " + m.getValue() + " - новый контакт");
+    public String createContacts(ContactData contactPhone) {
+
+        String sql = "INSERT INTO " + Constants.TABLE_NAME + "( name, number ) VALUES(?,?)";
+        try (PreparedStatement pstmt = DBconn.connect().prepareStatement(sql)) {
+            pstmt.setString(1, contactPhone.getName());
+            pstmt.setString(2, contactPhone.getNumber());
+            pstmt.executeUpdate();
+            return Constants.INSERT_MSG;
+        } catch (SQLException e) {
+            return e.getMessage();
         }
-        return null;
     }
 }
 
