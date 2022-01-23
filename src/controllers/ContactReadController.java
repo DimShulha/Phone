@@ -1,7 +1,9 @@
 package controllers;
 
 import database.ContactData;
+import models.AppModel;
 import models.ContactReadModel;
+import views.AppView;
 import views.ContactReadView;
 
 import java.util.List;
@@ -24,7 +26,7 @@ public class ContactReadController {
             System.exit(0);
         } else {
             view.getOutput(str);
-
+        restartApp();
         }
     }
 
@@ -52,5 +54,12 @@ public class ContactReadController {
                 return "Нет базы данных!";
         } else
             return "Нет базы данных!";
+    }
+
+    private void restartApp() {
+        AppModel appModel = new AppModel();
+        AppView appView = new AppView(appModel);
+        AppController controller = new AppController(appModel, appView);
+        controller.runApp();
     }
 }
