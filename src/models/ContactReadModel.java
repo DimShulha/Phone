@@ -18,14 +18,14 @@ public class ContactReadModel {
 
     public List<ContactData> readContacts() {
         if (DBCheck.isDBExists()) {
-            list = isData();
+            list = readData();
         } else {
             list = null;
         }
         return list;
     }
 
-    private List<ContactData> isData() {
+    private List<ContactData> readData() {
         try (Statement stmt = DBconn.connect().createStatement()) {
 
             list = new ArrayList<>();
