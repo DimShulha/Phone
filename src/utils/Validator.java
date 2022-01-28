@@ -45,6 +45,23 @@ public class Validator {
         }
         return str;
     }
+
+    public static int validateIdInput(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            String str = scanner.nextLine().trim();
+            System.out.println("Не число!" +  str);
+        }
+        int id = scanner.nextInt();
+        while (id <= 0) {
+            System.out.println("Не вероное значение! Повторите ввод! ");
+            while (!scanner.hasNextInt()) {
+                String str = scanner.next().trim();
+                System.out.println("Не число!! Повторите ввод!! " +  str);
+            }
+            id = scanner.nextInt();
+        }
+        return id;
+    }
     // Проверка наличия ввода в массиве выбора
     // действий через contains()
     public static boolean contains(final int[] array, final int value) {
