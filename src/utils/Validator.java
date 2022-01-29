@@ -62,6 +62,7 @@ public class Validator {
         }
         return id;
     }
+
     // Проверка наличия ввода в массиве выбора
     // действий через contains()
     public static boolean contains(final int[] array, final int value) {
