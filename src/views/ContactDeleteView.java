@@ -11,7 +11,7 @@ public class ContactDeleteView {
 
     public ContactDeleteView(ContactDeleteModel model){ this.model = model;}
 
-    public ContactData makeInput(){
+    public ContactData makeInput() {
 
         Scanner scanner = new Scanner(System.in);
         ContactData contact = new ContactData();
@@ -21,9 +21,9 @@ public class ContactDeleteView {
         contact.setId(Validator.validateIdInput(scanner));
 
         return contact;
-
-//        public void getOutput(String output){
-//            System.out.println(output);}
+    }
+        public void getOut(String output){
+            System.out.println(output);}
 
     }
-}
+

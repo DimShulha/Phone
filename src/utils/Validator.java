@@ -7,7 +7,7 @@ public class Validator {
     public static int validateChoice(Scanner scanner) {
 
         // Массив для выбора действий
-        int[] menuChoices = {0, 1, 2};
+        int[] menuChoices = {0, 1, 2, 3};
 
         while (!scanner.hasNextInt()) {
             String str = scanner.nextLine().trim();
