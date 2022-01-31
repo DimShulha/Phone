@@ -5,7 +5,7 @@ import database.DBCheck;
 import database.ContactData;
 import utils.CheckID;
 import utils.Constants;
-import utils.Validator;
+
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ import java.sql.SQLException;
     }
 
     private String updateContact(ContactData contact) {
-            if(DBCheck.isDBExists()){
+            if(CheckID.idCheck(contact)){
         String sql = "UPDATE" + Constants.TABLE_NAME + "SET phone = ? WHERE id = ?";
         try (PreparedStatement pstm = DBconn.connect().prepareStatement(sql)){
             pstm.setString(1, contact.getNumber());

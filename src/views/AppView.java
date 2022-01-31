@@ -26,6 +26,7 @@ public class AppView {
                 1 - Создать контакты.
                 2 - Посмотреть контакты.
                 3 - Удалить контакт.
+                4 - Обновить контакт.
                 0 - Закрыть приложение.
                 """);
 
@@ -38,8 +39,6 @@ public class AppView {
 
     public void getOutput(String output, int choice) {
         if (choice == 0) System.out.println(output);
-        // Scanner лучше закрыть здесь,
-        // т.к. в этом методе завершаем программу.
         scanner.close();
         System.exit(0);
     }

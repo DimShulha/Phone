@@ -32,8 +32,8 @@ public class ContactsUpdateView {
 
         return contact;
     }
-//    public void getOutput(String output) {
-//        System.out.println(output);
-//    }
+    public void getOutput(String output) {
+        System.out.println(output);
+    }
 }
 

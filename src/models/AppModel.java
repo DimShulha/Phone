@@ -3,9 +3,11 @@ package models;
 import controllers.ContactCreateController;
 import controllers.ContactReadController;
 import controllers.ContactDeleteController;
+import controllers.ContactUpdateController;
 import views.ContactCreateView;
 import views.ContactReadView;
 import views.ContactDeleteView;
+import views.ContactsUpdateView;
 
 public class AppModel {
 
@@ -38,5 +40,13 @@ public class AppModel {
         ContactDeleteView view = new ContactDeleteView(model);
         ContactDeleteController controller = new ContactDeleteController(view, model);
         controller.delContact();
+    }
+
+    public void updateContacts(){
+        ContactUpdateModel model = new ContactUpdateModel();
+        ContactsUpdateView view = new ContactsUpdateView(model);
+        ContactUpdateController controller = new ContactUpdateController(view, model);
+        controller.updtContact();
+
     }
 }
