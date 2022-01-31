@@ -38,14 +38,14 @@ public class AppModel {
     public void deleteContacts(){
         ContactDeleteModel model = new ContactDeleteModel();
         ContactDeleteView view = new ContactDeleteView(model);
-        ContactDeleteController controller = new ContactDeleteController(view, model);
+        ContactDeleteController controller = new ContactDeleteController(model, view);
         controller.delContact();
     }
 
     public void updateContacts(){
         ContactUpdateModel model = new ContactUpdateModel();
         ContactsUpdateView view = new ContactsUpdateView(model);
-        ContactUpdateController controller = new ContactUpdateController(view, model);
+        ContactUpdateController controller = new ContactUpdateController(model, view);
         controller.updtContact();
 
     }

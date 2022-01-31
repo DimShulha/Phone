@@ -40,7 +40,7 @@ public class Validator {
     public static String validatePhoneInput(Scanner scanner) {
         String str = scanner.nextLine().trim();
         while (str.isEmpty()) {
-            System.out.print("Не верный ввод. Введите номер!");
+            System.out.print("");
             str = scanner.nextLine().trim();
         }
         return str;

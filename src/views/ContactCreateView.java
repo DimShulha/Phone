@@ -24,7 +24,7 @@ public class ContactCreateView {
         scanner = new Scanner(System.in);
         contact = new ContactData();
 
-        // Ввод и валидация данных
+        // ввод и валидация данных
 
         title = "Введите имя: ";
         System.out.print(title);

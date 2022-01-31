@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
     private String updateContact(ContactData contact) {
             if(CheckID.idCheck(contact)){
-        String sql = "UPDATE" + Constants.TABLE_NAME + "SET phone = ? WHERE id = ?";
+        String sql = "UPDATE " + Constants.TABLE_NAME + " SET number = ? WHERE id = ? ";
         try (PreparedStatement pstm = DBconn.connect().prepareStatement(sql)){
             pstm.setString(1, contact.getNumber());
             pstm.setInt(2, contact.getId());

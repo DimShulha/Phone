@@ -11,7 +11,7 @@ public class ContactDeleteController {
     ContactDeleteView view;
     ContactDeleteModel model;
 
-    public ContactDeleteController(ContactDeleteView view, ContactDeleteModel model) {
+    public ContactDeleteController(ContactDeleteModel model, ContactDeleteView view) {
         this.model = model;
         this.view = view;
     }
